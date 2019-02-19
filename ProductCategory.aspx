@@ -67,53 +67,21 @@
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="row product-listing">
-                                            <div class="col-md-4 col-sm-4 col-xs-12 listing-content margin-bottom">
-                                                <a class="cat-product-link" href="#">
-                                                    <asp:Image ID="Image1" runat="server" ImageUrl="http://bajajallianzlife.foxboxstores.com/images/products/Royal-Blue-Collared-T-shirt-With-Tipping_161118125926.jpg" />
-                                                    <h6>Royal Blue Collared T-shirt With Tipping</h6>
-                                                    <p>Arrow</p>
-                                                    <div class="pricing">
-                                                        <span class="selling-price">Rs. 999</span>
-                                                        <span class="mrp">Rs. 1099</span>
+                                            <asp:ListView ID="products" runat="server" ClientIDMode="Static">
+                                                <ItemTemplate>
+                                                    <div class="col-md-4 col-sm-4 col-xs-12 listing-content margin-bottom">
+                                                        <a class="cat-product-link" href='<%# Eval("category", "~/products/{0}/" + Eval("slug", "{0}") & "/" & Eval("ID")) %>'>
+                                                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#  Eval("main_image") %>' />
+                                                            <h6><%# Eval("item_name") %></h6>
+                                                            <p><%# Eval("brandName") %></p>
+                                                            <div class="pricing">
+                                                                <span class="selling-price">Rs. <%# Eval("our_price") %></span>
+                                                                <span class="mrp">Rs. <%# Eval("mrp") %></span>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12 listing-content margin-bottom">
-                                                <a class="cat-product-link" href="#">
-                                                    <asp:Image ID="Image2" runat="server" ImageUrl="http://bajajallianzlife.foxboxstores.com/images/products/Royal-Blue-Collared-T-shirt-With-Tipping_161118125926.jpg" />
-                                                    <h6>Royal Blue Collared T-shirt With Tipping</h6>
-                                                    <p>Arrow</p>
-                                                    <div class="pricing">
-                                                        <span class="selling-price">Rs. 999</span>
-                                                        <span class="mrp">Rs. 1099</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12 listing-content margin-bottom">
-                                                <a class="cat-product-link" href="#">
-                                                    <asp:Image ID="Image3" runat="server" ImageUrl="http://bajajallianzlife.foxboxstores.com/images/products/Royal-Blue-Collared-T-shirt-With-Tipping_161118125926.jpg" />
-                                                    <h6>Royal Blue Collared T-shirt With Tipping</h6>
-                                                    <p>Arrow</p>
-                                                    <div class="pricing">
-                                                        <span class="selling-price">Rs. 999</span>
-                                                        <span class="mrp">Rs. 1099</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12 listing-content margin-bottom">
-                                                <a class="cat-product-link" href="#">
-                                                    <asp:Image ID="Image4" runat="server" ImageUrl="http://bajajallianzlife.foxboxstores.com/images/products/Royal-Blue-Collared-T-shirt-With-Tipping_161118125926.jpg" />
-                                                    <h6>Royal Blue Collared T-shirt With Tipping</h6>
-                                                    <p>Arrow</p>
-                                                    <div class="pricing">
-                                                        <span class="selling-price">Rs. 999</span>
-                                                        <span class="mrp">Rs. 1099</span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                </ItemTemplate>
+                                            </asp:ListView>
                                         </div>
                                     </div>
                                 </div>
